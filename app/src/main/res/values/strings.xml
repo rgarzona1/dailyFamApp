@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">dailyFamApp</string>
+    <string name="boton_descripcion1">Listas de pendientes</string>
+    <string name="boton_descripcion2">Blog</string>
+    <string name="boton_descripcion3">Perfil</string>
+    <string name="open">Abrir Menu</string>
+    <string name="close">Cerrar Menu</string>
+
+</resources>

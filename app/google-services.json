@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "1040145144401",
+    "firebase_url": "https://news-app-rags-ev3-default-rtdb.firebaseio.com",
+    "project_id": "news-app-rags-ev3",
+    "storage_bucket": "news-app-rags-ev3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040145144401:android:09b91dfb7cf04f49acb670",
+        "android_client_info": {
+          "package_name": "com.example.dailyfamapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh6UmnoRzkhFAhnzBRYTJYctO2f98yUhY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040145144401:android:7fffdb196b59325dacb670",
+        "android_client_info": {
+          "package_name": "com.example.newsappev3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh6UmnoRzkhFAhnzBRYTJYctO2f98yUhY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
