@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DailyFamApp">
         <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".TaskListActivity"
             android:exported="false" />
         <activity
@@ -25,6 +31,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.MoviesActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

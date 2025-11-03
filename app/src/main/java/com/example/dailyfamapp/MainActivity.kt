@@ -10,18 +10,34 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.dailyfamapp.databinding.ActivityMainBinding
+import com.example.dailyfamapp.ui.MoviesActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.example.dailyfamapp.R
+import android.util.Log
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+        if (currentUser == null) {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+            return
+        }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         loadSavedTheme()
+
+
 
         toggle= ActionBarDrawerToggle(this,binding.main,R.string.open,R.string.close)
         binding.main.addDrawerListener(toggle)
@@ -35,6 +51,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val intent = Intent(this, TaskListActivity::class.java)
             startActivity(intent)
         }
+        binding.moviesButton.setOnClickListener {
+            val intent = Intent(this, MoviesActivity::class.java)
+            startActivity(intent)
+        }
+
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -107,6 +128,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.bottomNavigationView.setBackgroundColor(navbar)
         binding.navigationView.setBackgroundColor(menu)
     }
+
 
 }
 
