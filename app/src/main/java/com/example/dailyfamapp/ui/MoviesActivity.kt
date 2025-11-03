@@ -12,7 +12,7 @@ import com.example.dailyfamapp.BuildConfig
 import com.example.dailyfamapp.R
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
-import com.example.dailyfamapp.data.Movie
+import android.widget.ImageButton
 import com.example.dailyfamapp.data.RetrofitClient
 
 import kotlinx.coroutines.launch
@@ -30,6 +30,11 @@ class MoviesActivity : AppCompatActivity() {
 
         val etBuscar = findViewById<EditText>(R.id.etBuscar)
         val btnBuscar = findViewById<Button>(R.id.btnBuscar)
+        val btnBack = findViewById<ImageButton>(R.id.btnBackk)
+        btnBack.setOnClickListener {
+            finish()
+        }
+
         recyclerView = findViewById(R.id.recyclerMovies)
 
         adapter = MovieAdapter(emptyList())

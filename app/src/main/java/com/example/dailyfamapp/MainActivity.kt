@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import com.example.dailyfamapp.databinding.ActivityMainBinding
 import com.example.dailyfamapp.ui.MoviesActivity
 import com.google.firebase.auth.FirebaseAuth
+import android.widget.TextView
 import com.example.dailyfamapp.R
 import android.util.Log
 
@@ -25,17 +26,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
+
         if (currentUser == null) {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
             return
         }
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
         loadSavedTheme()
+        val userEmail = currentUser.email?:"Usuario no Encontrado"
+        val headerView = binding.navigationView.getHeaderView(0)
+        val emailTextView = headerView.findViewById<TextView>(R.id.header_email_menu)
+        emailTextView.text = userEmail
 
 
 
@@ -57,11 +65,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
     }
+    //LOGICA DE BOTONES EN MENU LATERAL (LOG OUT Y CAMBAIR COLOR)
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_logout -> {
-                // Lógica para cerrar sesión
-                Toast.makeText(this, "Cerrar sesión", Toast.LENGTH_SHORT).show()
+                auth.signOut()
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
+                Toast.makeText(this, "Cerrando sesión", Toast.LENGTH_SHORT).show()
         }
             R.id.action_aspecto -> {
                 val temas =arrayOf("verde","azul","naranja")

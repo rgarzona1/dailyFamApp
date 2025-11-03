@@ -14,13 +14,13 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvNombre"
+                android:id="@+id/tvBienvenido"
                 android:layout_width="227dp"
                 android:layout_height="41dp"
                 android:layout_marginStart="77dp"
                 android:layout_marginTop="24dp"
                 android:gravity="center"
-                android:text="TextView"
+                android:text="¡Bienvenido a tu familia digital!"
                 android:textAlignment="textStart"
                 app:layout_constraintStart_toStartOf="@+id/imageButton5"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -30,20 +30,10 @@
                 android:layout_width="379dp"
                 android:layout_height="37dp"
                 android:layout_marginTop="75dp"
-                android:text="Accesos rapidos"
+                android:text="Organiza tus tareas:"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="379dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="40dp"
-                android:text="Descubre las noticias de hoy"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+                app:layout_constraintTop_toBottomOf="@+id/tvBienvenido" />
 
             <ImageButton
                 android:id="@+id/imageButton"
@@ -72,31 +62,49 @@
                 app:srcCompat="@drawable/listas_img" />
 
 
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="379dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="40dp"
+                android:text="Escoge tu proximo domingo de pelis:"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
             <ImageButton
                 android:id="@+id/moviesButton"
                 android:layout_width="390dp"
                 android:layout_height="119dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="47dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="11dp"
                 android:layout_marginBottom="35dp"
+                android:scaleType="fitXY"
                 app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/cine" />
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottomNavigationView"
-                android:layout_width="411dp"
-                android:layout_height="64dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/windowBackground"
+                app:itemActiveIndicatorStyle="@style/Widget.Material3.BottomNavigationView.ActiveIndicator"
+                app:itemIconSize="28dp"
+                app:itemIconTint="@color/black"
+                app:itemRippleColor="@color/design_default_color_secondary_variant"
+                app:itemTextColor="@color/black"
+                app:labelVisibilityMode="labeled"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.998"
                 app:menu="@menu/menu_navbar_inferior"
-                android:foregroundGravity="center"/>
+                tools:ignore="MissingConstraints" />
 
             <ImageButton
                 android:id="@+id/imageButton5"
@@ -105,6 +113,7 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="336dp"
+                android:background="#00FFFFFF"
                 android:contentDescription="@string/boton_descripcion3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

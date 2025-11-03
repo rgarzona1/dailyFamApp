@@ -9,6 +9,8 @@ import com.example.dailyfamapp.databinding.DialogTaskBinding
 import com.example.dailyfamapp.model.Task
 import com.example.dailyfamapp.ui.TaskAdapter
 import com.google.firebase.database.ValueEventListener
+import android.widget.ImageButton
+
 
 class TaskListActivity : AppCompatActivity() {
 
@@ -23,6 +25,9 @@ class TaskListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTaskListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
         setupRecycler()
         setupFab()
     }
@@ -83,4 +88,6 @@ class TaskListActivity : AppCompatActivity() {
         super.onStop()
         dbListener?.let { repository.removeListener(it) }
     }
+
+
 }
